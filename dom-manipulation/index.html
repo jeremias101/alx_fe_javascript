@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Quote Generator</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 780px; margin: 24px auto; padding: 0 12px; }
-    #quoteDisplay { border: 2px solid #333; border-radius: 10px; padding: 16px; background: #f5f5f5; min-height: 80px; }
-    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
-    input, button { padding: 8px 10px; }
-    small { color: #666; }
-  </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
 
-  <!-- Quote display -->
-  <div id="quoteDisplay">
-    <p>Click “Show New Quote” to get started!</p>
-  </div>
+  <!-- Quote Display -->
+  <div id="quoteDisplay"></div>
+  <button id="newQuote">Show New Quote</button>
 
-  <!-- Controls -->
-  <div class="controls">
-    <button id="newQuote">Show New Quote</button>
-    <button id="exportJson">Export Quotes (JSON)</button>
-    <!-- JSON Import -->
-    <label>
-      Import Quotes:
-      <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
-    </label>
-    <button id="showLast">Show Last Viewed (session)</button>
-  </div>
-
-  <!-- Add Quote Form (static). If you remove this block,
-       JS will create it dynamically via createAddQuoteForm(). -->
-  <div id="manualForm" class="controls">
+  <!-- Add Quote Form -->
+  <div>
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
     <button onclick="addQuote()">Add Quote</button>
+  </div>
+
+  <!-- Category Filter -->
+  <div>
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter" onchange="filterQuotes()">
+      <option value="all">All Categories</option>
+    </select>
+  </div>
+
+  <!-- Import/Export -->
+  <div>
+    <button onclick="exportToJsonFile()">Export Quotes</button>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
   </div>
 
   <script src="script.js"></script>
