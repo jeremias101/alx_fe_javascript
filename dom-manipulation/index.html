@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dynamic Quote Generator</title>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
 
-  <!-- Quote Display -->
+  <!-- Quote display -->
   <div id="quoteDisplay"></div>
 
-  <!-- Show New Quote Button -->
+  <!-- Show New Quote button -->
   <button id="newQuote">Show New Quote</button>
 
-  <!-- Add New Quote Form -->
-  <div>
+  <!-- (Optional) Static form — keep it if you want.
+       If you omit this block, JS will create it dynamically via createAddQuoteForm(). -->
+  <div id="manualForm">
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <!-- If you had addQuate() here before, it will still work with the alias -->
     <button onclick="addQuote()">Add Quote</button>
   </div>
 
